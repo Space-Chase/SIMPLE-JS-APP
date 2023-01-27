@@ -33,3 +33,4 @@ pokemonRepository.getAll().forEach(function(pokemon) {
     document.write(pokemon.name + ' (height:) ' + pokemon.height + (tallP) + "<br>");
 
 });
+pokemonRepository.add({ name: "Pikachu", weight: 6.0, height: 0.4, type: ["ELECTRIC"] });
