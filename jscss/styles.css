@@ -1,1 +1,20 @@
-body {background-color: rgb(241, 255, 159);}
+body {background-color: rgb(182, 249, 247);}
+h1 {color: rgb(255, 0, 0);}
+.button-class {
+    background-color: #ffff04; 
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 20px; 
+    text-align: center;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0); 
+    font-weight: bold;
+    transition: all 0.3s ease-in-out; 
+    }
+    
+    .button-class:hover {
+    background-color: white;
+    color: #47a9b6; 
+    cursor: pointer; 
+    transform: translateY(-2px); 
+    box-shadow: 2px 2px 10px #333; 
+    }
