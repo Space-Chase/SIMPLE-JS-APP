@@ -18,15 +18,21 @@ let pokemonRepository = (function () {
     function add(pokemon) {
         pokemonList.push(pokemon);
     }
-    function addListItem(pokemon) {
 
+    function showDetails(pokemon) {
+        console.log(pokemon)
+    };
+    function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
-        let listpokemon = document.createElement("li");
-        let button = document.createElement("button")
+        let listPokemon = document.createElement("li");
+        let button = document.createElement("button");
         button.innerText = pokemon.name;
         button.classList.add("button-class");
-        listpokemon.appendChild(button);
-        pokemonList.appendChild(listpokemon);
+        listPokemon.appendChild(button);
+        pokemonList.appendChild(listPokemon);
+        button.addEventListener("click", function () {
+            showDetails(pokemon);
+        });
     }
 
     return {
@@ -38,21 +44,5 @@ let pokemonRepository = (function () {
 
 pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
+    console.log(typeof (pokemon))
 });
-pokemonRepository.add({ name: "Pikachu", weight: 6.0, height: 0.4, type: ["ELECTRIC"] });
-
-function addListItem(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listPokemon = document.createElement("li");
-    let button = document.createElement("button");
-    button.innerText = pokemon.name;
-    button.classList.add("button-class");
-    listPokemon.appendChild(button);
-    pokemonList.appendChild(listPokemon);
-    button.addEventListener("click", function () {
-        showDetails(pokemon);
-    });
-}
-function showDetails(pokemon) {
-    console.log(pokemon)
-};
