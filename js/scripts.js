@@ -46,22 +46,60 @@ let pokemonRepository = (function () {
             });
     }
 
-    function loadDetails(item) {
+    async function loadDetails(item) {
         let url = item.detailsUrl;
-        return fetch(url).then(function (response) {
-            return response.json();
-        }).then(function (details) {
+        try {
+            const response = await fetch(url);
+            const details = await response.json();
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
-        }).catch(function (e) {
+        } catch (e) {
             console.error(e);
-        });
+        }
     }
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-            console.log(pokemon);
+        pokemonRepository.loadDetails(pokemon).then(function () {
+            const modal = createModal(pokemon);
+            document.body.appendChild(modal.backdrop);
+            document.body.appendChild(modal.modal);
         });
+    }
+
+    function createModal(pokemon) {
+        const backdrop = document.createElement('div');
+        backdrop.classList.add('modal-backdrop');
+
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        const name = document.createElement('h2');
+        name.textContent = pokemon.name;
+
+        const height = document.createElement('p');
+        height.textContent = `Height: ${pokemon.height}`;
+
+        const img = document.createElement('img');
+        img.src = pokemon.imageUrl;
+        img.alt = pokemon.name;
+        img.classList.add('modal-image');
+
+        modal.appendChild(name);
+        modal.appendChild(height);
+        modal.appendChild(img);
+
+        backdrop.addEventListener('click', closeModal);
+        document.addEventListener('keydown', closeModal);
+
+        function closeModal(event) {
+            if (event.type === 'click' || event.key === 'Escape') {
+                backdrop.remove();
+                modal.remove();
+                document.removeEventListener('keydown', closeModal);
+            }
+        }
+
+        return { backdrop, modal };
     }
 
     return {
