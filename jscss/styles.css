@@ -19,5 +19,27 @@ h1 {color: rgb(255, 0, 0);}
     box-shadow: 2px 2px 10px #333; 
     }
     .modal-backdrop { 
-    background-color: white; height: 200px; width: 200px;
+    background-color: rgb(173, 250, 164); 
+    height: 268px;
+    width: 200px;
+    transform: translateY(-220px);
+    position: fixed;
+    top: 50%;
+    left: 45%;
+    border-radius: 10%;
+    border: 2px black;  
+    box-shadow: 0px 0px 10px rgba(221, 0, 255, 0.5);
     }
+    .modal {
+        transform: translateY(-220px);
+        position: fixed;
+        top: 50%;
+        left: 50%;    
+    }
+   .pName {
+    text-transform: capitalize;
+    font-weight: bolder;
+   }
+   .pTypes {
+    word-spacing: normal;
+   }

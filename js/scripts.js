@@ -12,7 +12,7 @@ let pokemonRepository = (function () {
 
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-            const modal = createModal(pokemon);
+            let modal = createModal(pokemon);
             document.body.appendChild(modal.backdrop);
             document.body.appendChild(modal.modal);
         });
@@ -53,8 +53,8 @@ let pokemonRepository = (function () {
     async function loadDetails(item) {
         let url = item.detailsUrl;
         try {
-            const response = await fetch(url);
-            const details = await response.json();
+            let response = await fetch(url);
+            let details = await response.json();
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
@@ -64,19 +64,28 @@ let pokemonRepository = (function () {
     }
 
     function createModal(pokemon) {
-        const backdrop = document.createElement("div");
+        let backdrop = document.createElement("div");
         backdrop.classList.add("modal-backdrop");
 
-        const modal = document.createElement("div");
+        let modal = document.createElement("div");
         modal.classList.add("modal");
 
-        const name = document.createElement("h2");
+        let name = document.createElement("h2");
         name.textContent = pokemon.name;
+        name.classList.add("pName");
 
-        const height = document.createElement("p");
+        let height = document.createElement("p");
         height.textContent = `Height: ${pokemon.height}`;
 
-        const img = document.createElement("img");
+        let kind = document.createElement("p");
+        kind.textContent = 'Types:';
+        kind.classList.add("pTypes");
+        
+        pokemon.types.forEach ( function (plist){console.log (plist.type.name)
+          kind.textContent += plist.type.name
+     });
+
+        let img = document.createElement("img");
         img.src = pokemon.imageUrl;
         img.alt = pokemon.name;
         img.classList.add("modal-image");
@@ -84,8 +93,9 @@ let pokemonRepository = (function () {
         modal.appendChild(name);
         modal.appendChild(height);
         modal.appendChild(img);
-
-        backdrop.addEventListener("click", closeModal);
+        modal.appendChild(kind);
+        
+        document.addEventListener("click", closeModal);
         document.addEventListener("keydown", closeModal);
 
         function closeModal(event) {
