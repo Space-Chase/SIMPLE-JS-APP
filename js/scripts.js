@@ -78,8 +78,7 @@ let pokemonRepository = (function () {
         height.textContent = `Height: ${pokemon.height}`;
 
         let kind = document.createElement("p");
-        kind.textContent = 'Types:';
-        kind.classList.add("pTypes");
+        kind.textContent = 'Types: ';
         
         pokemon.types.forEach ( function (plist){console.log (plist.type.name)
           kind.textContent += plist.type.name

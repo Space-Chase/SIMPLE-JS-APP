@@ -21,7 +21,7 @@ h1 {color: rgb(255, 0, 0);}
     .modal-backdrop { 
     background-color: rgb(173, 250, 164); 
     height: 268px;
-    width: 200px;
+    width: 280px;
     transform: translateY(-220px);
     position: fixed;
     top: 50%;
