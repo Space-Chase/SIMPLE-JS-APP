@@ -21,9 +21,9 @@ h1 {color: rgb(255, 0, 0);}
     .modal-backdrop { 
     background-color: rgb(173, 250, 164); 
     height: 268px;
-    width: 280px;
-    transform: translateY(-220px);
-    position: fixed;
+    width: 295px;
+    transform: translateY(-222px) translateX(46px);
+    position:absolute;
     top: 50%;
     left: 45%;
     border-radius: 10%;
@@ -43,3 +43,4 @@ h1 {color: rgb(255, 0, 0);}
    .pTypes {
     word-spacing: normal;
    }
+  
