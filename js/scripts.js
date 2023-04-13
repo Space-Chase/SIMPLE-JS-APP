@@ -13,13 +13,12 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             console.log(pokemon);
-            document.getElementById("modalHeader").innerHTML= pokemon.name
-            let modal = document.getElementById("modalBody");
-            let img = document.getElementById(h);
-             //document.body.appendChild(modal.backdrop);  
+            document.getElementById("modalHeader").innerHTML = pokemon.name
+            document.querySelector(".pokePic").src = pokemon.imageUrl
+            document.getElementById("stats").innerHTML = "Height: " + (pokemon.height / 10) + "m";
+            document.getElementById("stats2").innerHTML = "Type: " + pokemon.types.map(t => t.type.name).join(", ");
         });
     }
-
 
     function addListItem(pokemon) {
         let pokemonListElement = document.querySelector(".list-group");
@@ -29,8 +28,8 @@ let pokemonRepository = (function () {
         button.innerText = pokemon.name;
         button.classList.add("btn");
         button.classList.add("button-class");
-        button.setAttribute("data-toggle","modal")
-        button.setAttribute("data-target","#myModal")
+        button.setAttribute("data-toggle", "modal")
+        button.setAttribute("data-target", "#myModal")
         listItem.appendChild(button);
         pokemonListElement.appendChild(listItem);
         button.addEventListener("click", function () {
@@ -70,50 +69,36 @@ let pokemonRepository = (function () {
         }
     }
 
-    /*function createModal(pokemon) {
-        let backdrop = document.createElement("div");
-        backdrop.classList.add("modal-backdrop");
+    function showModal(item) {
+        pokemonRepository.loadDetails(item).then(function () {
+            let modalNumber = document.querySelector(".modal-number");
+            modalNumber.innerHTML = "#" + item.id;
 
-        let modal = document.createElement("div");
-        modal.classList.add("modal");
+            let modalTitle = document.querySelector(".modal-title");
+            modalTitle.innerText = ". " + item.name;
 
-        let name = document.createElement("h2");
-        name.textContent = pokemon.name;
-        name.classList.add("pName");
+            let pokemonHeight = document.querySelector(".pokemon-height");
+            pokemonHeight.innerHTML = "Height: " + (item.height / 10) + " m";
 
-        let height = document.createElement("p");
-        height.textContent = `Height: ${pokemon.height}`;
+            let itemTypes = "";
+            item.types.forEach(function (types) {
+                itemTypes += [types.type.name + "<br>"];
+            });
 
-        let kind = document.createElement("p");
-        kind.textContent = 'Types: ';
-        
-        pokemon.types.forEach ( function (plist){console.log (plist.type.name)
-          kind.textContent += plist.type.name
-     });
+            let pokemonTypes = document.querySelector(".pokemon-types");
+            pokemonTypes.innerHTML = "Types: " + "<br>" + itemTypes;
 
-        let img = document.createElement("img");
-        img.src = pokemon.imageUrl;
-        img.alt = pokemon.name;
-        img.classList.add("modal-image");
+            let pokemonImg = document.querySelector(".pokemon-img");
+            pokemonImg.src = item.imageUrl;
 
-        modal.appendChild(name);
-        modal.appendChild(height);
-        modal.appendChild(img);
-        modal.appendChild(kind);
-        
-        document.addEventListener("click", closeModal);
-        document.addEventListener("keydown", closeModal);
+            let modalBody = document.querySelector(".modal-body");
+            let heightElement = document.createElement("p");
+            heightElement.innerHTML = "Height: " + (item.height / 10) + " m";
+            modalBody.appendChild(heightElement);
+        });
+    }
 
-        function closeModal(event) {
-            if (event.type === "click" || event.key === "Escape") {
-                backdrop.remove();
-                modal.remove();
-                document.removeEventListener("keydown", closeModal);
-            }
-        }
 
-        return { backdrop, modal };
-    }*/
 
     return {
         getAll: getAll,
