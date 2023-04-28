@@ -1,64 +1,63 @@
-body {background-color: rgb(182, 249, 247);}
+body {
+  background-color: rgb(182, 249, 247);
+}
 h1 {
-    font-family: 'Pokemon Solid',;
-    font-weight: bold;
-    font-size: 6em;
-    color: red;
-    text-align: center;
-    text-shadow: 2px 2px 0px #000000;
-  }
-  
+  font-family: "Pokemon Solid";
+  font-weight: bold;
+  font-size: 6em;
+  color: red;
+  text-align: center;
+  text-shadow: 2px 2px 0px #000000;
+}
+
 .button-class {
-    background-color: #ffff04; 
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    border-radius: 20px; 
-    text-align: center;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0); 
-    font-weight: bold;
-    transition: all 0.3s ease-in-out; 
-    align-items: center;
-    }
-    
-    .button-class:hover {
-    background-color: rgb(248, 244, 244);
-    color: #fb27f4; 
-    cursor: pointer; 
-    transform: translateY(-2px); 
-    box-shadow: 2px 2px 10px #333;
-    align-items: center; 
-    }
-    .modal-backdrop { 
-    display: none;
-    opacity: 1;
-    
-    }
-    .modal-content {
-        margin: 0px auto;
-        z-index: 1100 !important;
-        background-color: rgb(159, 240, 159);        
-        
-    }
-   .pName {
-    text-transform: capitalize;
-    font-weight: bolder;
-   }
-   .pTypes {
-    word-spacing: normal;
-    color: #fb27f4;
-   }
-   .modal-header{
-    color: #000000;
-    font-size: xx-large;
-    text-transform: capitalize;
-   }
-   .list-group-item{
-   background: rgb(182, 249, 247); 
-   }
-   .pokePic {
-    background: rgb(0, 0, 0); 
-   }
-   .modalBack{
-    background-color: #000000;
-   }
-   
+  background-color: #ffff04;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgb(0, 0, 0);
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  align-items: center;
+}
+
+.button-class:hover {
+  background-color: rgb(248, 244, 244);
+  color: #fb27f4;
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 10px #333;
+  align-items: center;
+}
+.modal-backdrop {
+  display: none;
+  opacity: 1;
+}
+.modal-content {
+  margin: 0px auto;
+  z-index: 1100 !important;
+  background-color: rgb(159, 240, 159);
+}
+.pName {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+.pTypes {
+  word-spacing: normal;
+  color: #fb27f4;
+}
+.modal-header {
+  color: #000000;
+  font-size: xx-large;
+  text-transform: capitalize;
+}
+.list-group-item {
+  background: rgb(182, 249, 247);
+}
+.pokePic {
+  background: rgb(0, 0, 0);
+}
+.modalBack {
+  background-color: #000000;
+}
