@@ -1,0 +1,64 @@
+.button-class,
+h1 {
+  text-align: center;
+  font-weight: 700;
+}
+.modal-header,
+.pName {
+  text-transform: capitalize;
+}
+body {
+  background-color: #b6f9f7;
+}
+h1 {
+  font-family: "Pokemon Solid";
+  font-size: 6em;
+  color: red;
+  text-shadow: 2px 2px 0 #000;
+}
+.button-class {
+  background-color: #ffff04;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px #000;
+  transition: 0.3s ease-in-out;
+  align-items: center;
+}
+.button-class:hover {
+  background-color: #f8f4f4;
+  color: #fb27f4;
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 10px #333;
+  align-items: center;
+}
+.modal-backdrop {
+  display: none;
+  opacity: 1;
+}
+.modal-content {
+  margin: 0 auto;
+  z-index: 1100 !important;
+  background-color: #9ff09f;
+}
+.pName {
+  font-weight: bolder;
+}
+.pTypes {
+  word-spacing: normal;
+  color: #fb27f4;
+}
+.modal-header {
+  color: #000;
+  font-size: xx-large;
+}
+.list-group-item {
+  background: #b6f9f7;
+}
+.pokePic {
+  background: #000;
+}
+.modalBack {
+  background-color: #000;
+}
